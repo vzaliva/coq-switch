@@ -84,7 +84,7 @@ Section NatExample.
   Print ex1_select.
 
 
-  Definition Foo (n:nat) (p:Ex1_Choices) : nat :=
+  Definition Ex1 (n:nat) (p:Ex1_Choices) : nat :=
     match ex1_select n with
     | Some Love => 100
     | Some Ten => 110
@@ -92,3 +92,33 @@ Section NatExample.
     | None => 0
     end.
 End NatExample.
+
+
+Require Import Coq.Bool.Sumbool.
+Require Import Coq.Program.Basics.
+
+Section StringExample.
+
+  Definition string_beq a b :=
+    if string_dec a b then true else false.
+
+  Run TemplateProgram
+      (mkSwitch string
+                string_beq
+                [("love","SLove") ; ("ten","STen") ; ("twenty","STwenty")]
+                "Ex2_Choices" "ex2_select"
+      ).
+
+  Print Ex2_Choices.
+  Print ex2_select.
+
+
+  Definition Ex2 (s:string) (p:Ex2_Choices) : nat :=
+    match ex2_select s with
+    | Some SLove => 100
+    | Some STen => 110
+    | Some STwenty => 120
+    | None => 0
+    end.
+
+End StringExample.
