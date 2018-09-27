@@ -20,7 +20,7 @@ Section NatExample.
   Print ex1_select.
 
 
-  Definition Ex1 (n:nat) (p:Ex1_Choices) : nat :=
+  Definition Ex1 (n:nat): nat :=
     match ex1_select n with
     | Some Love => 100
     | Some Ten => 110
@@ -47,7 +47,7 @@ Section StringExample.
   Print ex2_select.
 
 
-  Definition Ex2 (s:string) (p:Ex2_Choices) : nat :=
+  Definition Ex2 (s:string) : nat :=
     match ex2_select s with
     | Some SLove => 100
     | Some STen => 110
