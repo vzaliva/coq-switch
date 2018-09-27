@@ -1,4 +1,4 @@
-Require Import switch.
+Require Import Switch.Switch.
 
 Require Import Coq.Arith.EqNat.
 Require Import Coq.Strings.String.

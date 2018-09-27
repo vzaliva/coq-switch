@@ -29,3 +29,6 @@ nia.cache
 nlia.cache
 nra.cache
 /README.html
+/.coqdeps.d
+/Makefile.coq
+/Makefile.coq.conf
