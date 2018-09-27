@@ -62,12 +62,11 @@ To install all required dependenceis:
 This plugin is written using TemplateCoq. After importing you run
 template program `mkSwitch` providing the following parameters:
 
-    * type (`A`)
-    * boolean equality predicate on this type (`P: A->A->bool`)
-    * list of choices `(A * string)` where each element is a tuple of
-      a constant of type `A` and name of a constructor (as a string).
-    * name of a new inductive type
-    * name of selection function
+* type (`A`)
+* boolean equality predicate on this type (`P: A->A->bool`)
+* list of choices `(A * string)` where each element is a tuple of a constant of type `A` and a name of a constructor (as a string).
+* name of a new inductive type
+* name of selection function
       
 For example, running:
 
@@ -117,5 +116,5 @@ Definition Ex1 (n:nat) : T :=
 
 # Contact #
 
-    * Repository: https://github.com/vzaliva/coq-switch
-    * Questions: [Vadim Zaliva](mailto:vzaliva@cmu.edu)
+* Repository: https://github.com/vzaliva/coq-switch
+* Questions: [Vadim Zaliva](mailto:vzaliva@cmu.edu)
