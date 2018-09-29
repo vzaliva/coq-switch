@@ -48,15 +48,17 @@ error-prone. This plugin allows to automate such tasks.
 
 ## Installation ##
 
+The easiest way to install is via OPAM:
+
+    opam repo add coq-released https://coq.inria.fr/opam/released
+    opam install --jobs=4 coq coq-template-coq coq-switch
+
+If you want to compile it from source, you need to install the
+following dependencies:
+
 * [Coq 8.8.1](https://coq.inria.fr/) 
 * [Template Coq](https://template-coq.github.io/template-coq/)
 
-To install all required dependenceis:
-
-    opam repo add coq-released https://coq.inria.fr/opam/released
-    opam install --jobs=4 coq coq-template-coq
-    
-    
 ## Usage ##
 
 This plugin is written using TemplateCoq. After importing you run
