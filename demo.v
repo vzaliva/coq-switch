@@ -9,6 +9,8 @@ Import ListNotations.
 
 Section NatExample.
 
+  (* This example uses standard list notation for choices *)
+
   Run TemplateProgram
       (mkSwitch nat
                 beq_nat
@@ -28,19 +30,22 @@ Section NatExample.
     | None => 0
     end.
 
-End NatExample.
-
+  End NatExample.
 
 Section StringExample.
+
+  (* This example custom -> notation for choices *)
+  Infix "->" := pair.
 
   Definition string_beq a b :=
     if string_dec a b then true else false.
 
   Run TemplateProgram
-      (mkSwitch string
-                string_beq
-                [("love","SLove") ; ("ten","STen") ; ("twenty","STwenty")]
-                "Ex2_Choices" "ex2_select"
+      (mkSwitch string string_beq [
+                  "love" -> "SLove" ;
+                   "ten" -> "STen"  ;
+                   "twenty" -> "STwenty"
+                ] "Ex2_Choices" "ex2_select"
       ).
 
   Print Ex2_Choices.
