@@ -57,7 +57,7 @@ If you want to compile it from source, you need to install the
 following dependencies:
 
 * [Coq 8.8.1](https://coq.inria.fr/) 
-* [Template Coq](https://template-coq.github.io/template-coq/)
+* [Template Coq](https://github.com/MetaCoq/metacoq)
 
 ## Usage ##
 
