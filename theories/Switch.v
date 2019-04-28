@@ -5,6 +5,9 @@ Require Import Template.All.
 Import MonadNotation.
 Import ListNotations.
 
+Open Scope string_scope.
+
+
 Fixpoint mkSwitchCases
          (type_name: string)
          (A_t: term)
