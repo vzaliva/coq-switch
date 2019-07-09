@@ -1,4 +1,5 @@
 -R theories Switch
-
+-R ./lib/metacoq/template-coq/theories MetaCoq.Template
+-I ./lib/metacoq/template-coq/src
 theories/Switch.v
 
