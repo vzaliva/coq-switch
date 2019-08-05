@@ -57,7 +57,7 @@ Definition mkSwitch
           mind_entry_finite    := Finite ;
           mind_entry_params    := [] ;
           mind_entry_inds      := [one_i] ;
-          mind_entry_universes := Monomorphic_ctx ([], ConstraintSet.empty) ;
+          mind_entry_universes := Monomorphic_ctx ContextSet.empty ;
           mind_entry_private   := None (* or (Some false)? *)
         |} in
     ind_t <- tmMkInductive ind ;;
