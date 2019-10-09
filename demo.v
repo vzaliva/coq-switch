@@ -3,7 +3,7 @@ Require Import Switch.Switch.
 Require Import Coq.Arith.EqNat.
 Require Import Coq.Strings.String.
 Require Import Coq.Lists.List.
-Require Import Template.All.
+Require Import MetaCoq.Template.All.
 
 Import ListNotations.
 

@@ -51,13 +51,13 @@ error-prone. This plugin allows to automate such tasks.
 The easiest way to install is via OPAM:
 
     opam repo add coq-released https://coq.inria.fr/opam/released
-    opam install --jobs=4 coq coq-template-coq coq-switch
+    opam install --jobs=4 coq coq-switch
 
 If you want to compile it from source, you need to install the
 following dependencies:
 
-* [Coq 8.8.1](https://coq.inria.fr/) 
-* [Template Coq](https://github.com/MetaCoq/metacoq)
+* [Coq 8.9.1](https://coq.inria.fr/) 
+* [MetaCoq](https://github.com/MetaCoq/metacoq) 
 
 ## Usage ##
 
