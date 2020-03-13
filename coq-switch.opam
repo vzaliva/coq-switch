@@ -12,12 +12,12 @@ install: [
   [make "install"]
 ]
 depends: [
-  "coq" {>= "8.9.1"}
-  "coq-metacoq-template" {>= "1.0~alpha+8.9"}
+  "coq" {>= "8.10.2"}
+  "coq-metacoq-template" {>= "1.0~alpha2+8.10"}
 ]
 tags: [
   "category:Miscellaneous/Coq Extensions"
-  "date:2019-10-09"
+  "date:2020-03-13"
   "logpath:Switch"
 ]
 synopsis: "A plugin to implement functionality similar to `switch` statement in C language."
@@ -29,7 +29,7 @@ an inductive type with constructors, one for each of the choices, and
 a function mapping values to this type."""
 
 url {
-  src: "https://github.com/vzaliva/coq-switch/archive/v1.0.1.tar.gz"
-  checksum: "51dc09401a650b0a17c8fa39780fcdb7"
+  src: "https://github.com/vzaliva/coq-switch/archive/v1.0.2.tar.gz"
+  checksum: ""
 }
              

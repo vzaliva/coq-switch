@@ -30,21 +30,21 @@ Section NatExample.
     | None => 0
     end.
 
-  End NatExample.
+End NatExample.
+
+Definition string_beq a b :=
+  if string_dec a b then true else false.
 
 Section StringExample.
 
   (* This example custom -> notation for choices *)
   Infix "->" := pair.
 
-  Definition string_beq a b :=
-    if string_dec a b then true else false.
-
   Run TemplateProgram
       (mkSwitch string string_beq [
                   "love" -> "SLove" ;
-                   "ten" -> "STen"  ;
-                   "twenty" -> "STwenty"
+                "ten" -> "STen"  ;
+                "twenty" -> "STwenty"
                 ] "Ex2_Choices" "ex2_select"
       ).
 
