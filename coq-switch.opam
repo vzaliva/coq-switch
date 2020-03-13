@@ -30,6 +30,6 @@ a function mapping values to this type."""
 
 url {
   src: "https://github.com/vzaliva/coq-switch/archive/v1.0.2.tar.gz"
-  checksum: ""
+  checksum: "51ad3d8d53edb2334854d8bc976b75ed"
 }
              
