@@ -73,7 +73,7 @@ template program `mkSwitch` providing the following parameters:
 For example, running:
 
 ```
- Run TemplateProgram
+ MetaCoq Run
      (mkSwitch nat
                beq_nat
                [(0,"Love") ; (10,"Ten") ; (20, "twenty")]

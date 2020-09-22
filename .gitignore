@@ -32,3 +32,4 @@ nra.cache
 /.coqdeps.d
 /Makefile.coq
 /Makefile.coq.conf
+/theories/*.vos

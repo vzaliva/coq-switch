@@ -11,7 +11,7 @@ Section NatExample.
 
   (* This example uses standard list notation for choices *)
 
-  Run TemplateProgram
+MetaCoq Run
       (mkSwitch nat
                 beq_nat
                 [(0,"Love") ; (10,"Ten") ; (20, "twenty")]
@@ -40,7 +40,7 @@ Section StringExample.
   (* This example custom -> notation for choices *)
   Infix "->" := pair.
 
-  Run TemplateProgram
+  MetaCoq Run
       (mkSwitch string string_beq [
                   "love" -> "SLove" ;
                 "ten" -> "STen"  ;
