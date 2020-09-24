@@ -49,7 +49,6 @@ Definition mkSwitch
         {|
           mind_entry_typename := type_name ;
           mind_entry_arity := tSort Universe.type0 ;
-          mind_entry_template := false ;
           mind_entry_consnames := map snd choices ;
           mind_entry_lc := map (fun _ => tRel 0) choices;
         |} in
@@ -59,7 +58,8 @@ Definition mkSwitch
           mind_entry_params    := [] ;
           mind_entry_inds      := [one_i] ;
           mind_entry_universes := Monomorphic_entry (LevelSet.empty, ConstraintSet.empty);
-          mind_entry_variance  := None;
+          mind_entry_template := false ;
+          mind_entry_cumulative  := false ;
           mind_entry_private   := None (* or (Some false)? *)
         |} in
     mp <- tmCurrentModPath tt ;;
