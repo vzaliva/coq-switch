@@ -30,6 +30,8 @@ MetaCoq Run
     | None => 0
     end.
 
+  Compute Ex1 10.
+
 End NatExample.
 
 Definition string_beq a b :=
@@ -59,5 +61,8 @@ Section StringExample.
     | Some STwenty => 120
     | None => 0
     end.
+
+  Compute Ex2 "ten".
+  Compute Ex2 "xxx".
 
 End StringExample.

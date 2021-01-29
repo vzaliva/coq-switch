@@ -119,4 +119,4 @@ Definition Ex1 (n:nat) : T :=
 # Contact #
 
 * Repository: https://github.com/vzaliva/coq-switch
-* Questions: [Vadim Zaliva](mailto:vzaliva@cmu.edu)
+* Questions: [Vadim Zaliva](mailto:lord@crocodile.org)

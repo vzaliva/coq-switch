@@ -7,6 +7,8 @@ Import ListNotations.
 
 Open Scope string_scope.
 
+Definition rname (s:string) := {| binder_name := nNamed s; binder_relevance := Relevant |}.
+
 Fixpoint mkSwitchCases
          (type_name: kername)
          (A_t: term)
@@ -22,10 +24,10 @@ Fixpoint mkSwitchCases
   | [] => tApp (tConstruct opt_i 1 []) [tInd T_i []]
   | (x::xs) => tCase
                (* # of parameters *)
-               (bool_i, 0)
+               ((bool_i, 0), Relevant)
 
                (* type info *)
-               (tLambda (nNamed "b") (tInd bool_i []) (tApp (tInd opt_i []) [tInd T_i []]))
+               (tLambda (rname "b") (tInd bool_i []) (tApp (tInd opt_i []) [tInd T_i []]))
 
                (* discriminee *)
                (tApp P_t [tRel 0; x])
@@ -59,7 +61,7 @@ Definition mkSwitch
           mind_entry_inds      := [one_i] ;
           mind_entry_universes := Monomorphic_entry (LevelSet.empty, ConstraintSet.empty);
           mind_entry_template := false ;
-          mind_entry_cumulative  := false ;
+          mind_entry_variance := None ;
           mind_entry_private   := None (* or (Some false)? *)
         |} in
     mp <- tmCurrentModPath tt ;;
@@ -68,7 +70,7 @@ Definition mkSwitch
     A_t <- tmQuote A ;;
     P_t <- tmQuote P ;;
     choices_t <- monad_map (fun x => tmQuote (fst x)) choices ;;
-    let body_t := tLambda (nNamed "x") A_t (mkSwitchCases (mp, type_name) A_t P_t choices_t 0) in
+    let body_t := tLambda (rname "x") A_t (mkSwitchCases (mp, type_name) A_t P_t choices_t 0) in
     body <- tmUnquoteTyped (A -> option T) body_t ;;
     def_t <- tmDefinition def_name body ;;
     tmReturn tt.
