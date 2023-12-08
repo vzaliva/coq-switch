@@ -13,9 +13,9 @@ Section NatExample.
 
 MetaCoq Run
       (mkSwitch nat
-                beq_nat
-                [(0,"Love") ; (10,"Ten") ; (20, "twenty")]
-                "Ex1_Choices" "ex1_select"
+                Nat.eqb
+                [(0,"Love"%bs) ; (10,"Ten"%bs) ; (20, "twenty"%bs)]
+                "Ex1_Choices"%bs "ex1_select"%bs
       ).
 
   Print Ex1_Choices.
@@ -43,18 +43,18 @@ Section StringExample.
   Infix "->" := pair.
 
   MetaCoq Run
-      (mkSwitch string string_beq [
-                  "love" -> "SLove" ;
-                "ten" -> "STen"  ;
-                "twenty" -> "STwenty"
-                ] "Ex2_Choices" "ex2_select"
+      (mkSwitch String.string string_beq [
+                  "love"%string   -> "SLove"%bs ;
+                  "ten"%string    -> "STen"%bs  ;
+                  "twenty"%string -> "STwenty"%bs
+                ] "Ex2_Choices"%bs "ex2_select"%bs
       ).
 
   Print Ex2_Choices.
   Print ex2_select.
 
 
-  Definition Ex2 (s:string) : nat :=
+  Definition Ex2 (s:String.string) : nat :=
     match ex2_select s with
     | Some SLove => 100
     | Some STen => 110
