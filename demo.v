@@ -6,6 +6,7 @@ Require Import Coq.Lists.List.
 Require Import MetaCoq.Template.All.
 
 Import ListNotations.
+Open Scope string_scope.
 
 Section NatExample.
 
@@ -13,7 +14,7 @@ Section NatExample.
 
 MetaCoq Run
       (mkSwitch nat
-                beq_nat
+                Nat.eqb
                 [(0,"Love") ; (10,"Ten") ; (20, "twenty")]
                 "Ex1_Choices" "ex1_select"
       ).
@@ -43,10 +44,10 @@ Section StringExample.
   Infix "->" := pair.
 
   MetaCoq Run
-      (mkSwitch string string_beq [
-                  "love" -> "SLove" ;
-                "ten" -> "STen"  ;
-                "twenty" -> "STwenty"
+      (mkSwitch String.string string_beq [
+                  "love"   -> "SLove" ;
+                  "ten"    -> "STen"  ;
+                  "twenty" -> "STwenty"
                 ] "Ex2_Choices" "ex2_select"
       ).
 
@@ -54,7 +55,7 @@ Section StringExample.
   Print ex2_select.
 
 
-  Definition Ex2 (s:string) : nat :=
+  Definition Ex2 (s:String.string) : nat :=
     match ex2_select s with
     | Some SLove => 100
     | Some STen => 110
