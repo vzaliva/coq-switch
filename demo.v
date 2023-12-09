@@ -14,8 +14,8 @@ Section NatExample.
 MetaCoq Run
       (mkSwitch nat
                 Nat.eqb
-                [(0,"Love"%bs) ; (10,"Ten"%bs) ; (20, "twenty"%bs)]
-                "Ex1_Choices"%bs "ex1_select"%bs
+                [(0,"Love") ; (10,"Ten") ; (20, "twenty")]
+                "Ex1_Choices" "ex1_select"
       ).
 
   Print Ex1_Choices.
@@ -44,10 +44,10 @@ Section StringExample.
 
   MetaCoq Run
       (mkSwitch String.string string_beq [
-                  "love"%string   -> "SLove"%bs ;
-                  "ten"%string    -> "STen"%bs  ;
-                  "twenty"%string -> "STwenty"%bs
-                ] "Ex2_Choices"%bs "ex2_select"%bs
+                  "love"%string   -> "SLove" ;
+                  "ten"%string    -> "STen"  ;
+                  "twenty"%string -> "STwenty"
+                ] "Ex2_Choices" "ex2_select"
       ).
 
   Print Ex2_Choices.
