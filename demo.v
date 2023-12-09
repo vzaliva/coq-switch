@@ -6,6 +6,7 @@ Require Import Coq.Lists.List.
 Require Import MetaCoq.Template.All.
 
 Import ListNotations.
+Open Scope string_scope.
 
 Section NatExample.
 
@@ -44,9 +45,9 @@ Section StringExample.
 
   MetaCoq Run
       (mkSwitch String.string string_beq [
-                  "love"%string   -> "SLove" ;
-                  "ten"%string    -> "STen"  ;
-                  "twenty"%string -> "STwenty"
+                  "love"   -> "SLove" ;
+                  "ten"    -> "STen"  ;
+                  "twenty" -> "STwenty"
                 ] "Ex2_Choices" "ex2_select"
       ).
 

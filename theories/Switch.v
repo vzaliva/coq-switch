@@ -38,20 +38,22 @@ Fixpoint mkSwitchCases
                ]
   end.
 
-
 Definition mkSwitch
            (A: Type)
            (P: A -> A -> bool)
-           (choices: list (A*string))
-           (type_name: string)
-           (def_name: string): TemplateMonad unit
+           (choices: list (A*String.string))
+           (type_name: String.string)
+           (def_name: String.string): TemplateMonad unit
   :=
+  let choices' := map (fun '(a, s) => (a, String.of_string s)) choices in
+  let type_name' := String.of_string type_name in
+  let def_name' := String.of_string def_name in
     let one_i : one_inductive_entry :=
         {|
-          mind_entry_typename := type_name ;
+          mind_entry_typename := type_name' ;
           mind_entry_arity := tSort Universe.type0 ;
-          mind_entry_consnames := map snd choices ;
-          mind_entry_lc := map (fun _ => tRel 0) choices;
+          mind_entry_consnames := map snd choices' ;
+          mind_entry_lc := map (fun _ => tRel 0) choices';
         |} in
     let ind:mutual_inductive_entry := {|
           mind_entry_record    := None ;
@@ -65,11 +67,11 @@ Definition mkSwitch
         |} in
     mp <- tmCurrentModPath tt ;;
     ind_t <- tmMkInductive false ind ;;
-    T <- tmUnquoteTyped Type (tInd {| inductive_mind := (mp, type_name); inductive_ind := 0 |} []) ;;
+    T <- tmUnquoteTyped Type (tInd {| inductive_mind := (mp, type_name'); inductive_ind := 0 |} []) ;;
     A_t <- tmQuote A ;;
     P_t <- tmQuote P ;;
-    choices_t <- monad_map (fun x => tmQuote (fst x)) choices ;;
-    let body_t := tLambda (rname "x") A_t (mkSwitchCases (mp, type_name) A_t P_t choices_t 0) in
+    choices_t <- monad_map (fun x => tmQuote (fst x)) choices' ;;
+    let body_t := tLambda (rname "x") A_t (mkSwitchCases (mp, type_name') A_t P_t choices_t 0) in
     body <- tmUnquoteTyped (A -> option T) body_t ;;
-    def_t <- tmDefinition def_name body ;;
+    def_t <- tmDefinition def_name' body ;;
     tmReturn tt.
