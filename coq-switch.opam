@@ -29,7 +29,7 @@ an inductive type with constructors, one for each of the choices, and
 a function mapping values to this type."""
 
 url {
-  src: "https://github.com/vzaliva/coq-switch/archive/v1.0.5.tar.gz"
+  src: "https://github.com/vzaliva/coq-switch/archive/v1.0.6.tar.gz"
   checksum: ""
 }
              
