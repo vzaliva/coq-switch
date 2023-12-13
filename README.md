@@ -4,13 +4,13 @@
 
 ## Introduction ##
 
-Sometimes you need to dispatch on several constant values which have a
-decidable type. Unfortunately Coq, does not have `swtich` statement,
-so common approach is to map these matches to an inductive type on
-which `match` could be performed later. This leads to code like this
+Sometimes you need to dispatch on several constant values that have a
+decidable type. Unfortunately, Coq does not have a `switch` statement,
+so a common approach is to map these constants to an inductive type on
+which a `match` can be performed later. This leads to code like this
 (taken from real-life projects):
 
-```
+```coq
 Definition BER_bits2radix (b : Z) : radix :=
   if (b =? 0)%Z
   then radix2
@@ -25,7 +25,7 @@ Definition BER_bits2radix (b : Z) : radix :=
 
 or like this:
 
-```
+```coq
 Definition parse_SHCOL_Op_Name (s:string): SHCOL_Op_Names :=
   if string_dec s "eUnion" then n_eUnion
   else if string_dec s "eT" then n_eT
@@ -42,7 +42,7 @@ Definition parse_SHCOL_Op_Name (s:string): SHCOL_Op_Names :=
                           else n_Unsupported s.
 ```
 
-Writing manually such biolerplate code is tiresome and
+Writing manually such a biolerplate code is tiresome and
 error-prone. This plugin allows to automate such tasks.
 
 
@@ -50,14 +50,16 @@ error-prone. This plugin allows to automate such tasks.
 
 The easiest way to install is via OPAM:
 
-    opam repo add coq-released https://coq.inria.fr/opam/released
-    opam install --jobs=4 coq coq-switch
+```sh
+opam repo add coq-released https://coq.inria.fr/opam/released
+opam install coq-switch
+```
 
 If you want to compile it from source, you need to install the
 following dependencies:
 
 * [Coq](https://coq.inria.fr/) 
-* [MetaCoq](https://github.com/MetaCoq/metacoq) 
+* [MetaCoq](https://metacoq.github.io/) 
 
 ## Usage ##
 
@@ -66,13 +68,13 @@ template program `mkSwitch` providing the following parameters:
 
 * type (`A`)
 * boolean equality predicate on this type (`P: A->A->bool`)
-* list of choices `(A * string)` where each element is a tuple of a constant of type `A` and a name of a constructor (as a string).
+* list of choices `(A * string)` where each element is a tuple of a constant of type `A` and the name of a constructor (as a string).
 * name of a new inductive type
-* name of selection function
+* name of the selection function
       
 For example, running:
 
-```
+```coq
  MetaCoq Run
      (mkSwitch nat
                beq_nat
@@ -83,7 +85,7 @@ For example, running:
 
 Will define a new type and a function:
 
-```
+```coq
 Print Ex1_Choices.
 
   Inductive Ex1_Choices : Set :=
@@ -106,7 +108,7 @@ Print ex1_select.
 
 Now, using these could be used for easy matching:
 
-```
+```coq
 Definition Ex1 (n:nat) : T :=
   match ex1_select n with
   | Some Love => ...
