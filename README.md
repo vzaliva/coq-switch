@@ -63,16 +63,15 @@ following dependencies:
 
 ## Usage ##
 
-This plugin is written using TemplateCoq. After importing you run
-template program `mkSwitch` providing the following parameters:
+This plugin is written using TemplateCoq. After importing, you run the template program `mkSwitch` providing the following parameters:
 
-* type (`A`)
-* boolean equality predicate on this type (`P: A->A->bool`)
-* list of choices `(A * string)` where each element is a tuple of a constant of type `A` and the name of a constructor (as a string).
-* name of a new inductive type
-* name of the selection function
+- a type (`A`)
+- a boolean equality predicate on this type (`A -> A -> bool`)
+- a list of choices (`(A * string)`) where each element is a tuple consisting of a constant of type `A` and the name of a constructor (as a string)
+- the name of the new inductive type
+- the name of the selection function
       
-For example, running:
+For example, running the following template program in Coq:
 
 ```coq
  MetaCoq Run
@@ -106,7 +105,7 @@ Print ex1_select.
       : nat -> option Ex1_Choices
 ```
 
-Now, using these could be used for easy matching:
+Now, the generated definitions could be used for easy matching:
 
 ```coq
 Definition Ex1 (n:nat) : T :=
@@ -121,4 +120,4 @@ Definition Ex1 (n:nat) : T :=
 # Contact #
 
 * Repository: https://github.com/vzaliva/coq-switch
-* Questions: [Vadim Zaliva](mailto:lord@crocodile.org)
+* Contact: [Vadim Zaliva](mailto:lord@crocodile.org)
